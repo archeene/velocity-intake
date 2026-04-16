@@ -160,7 +160,85 @@
     </section>
 
     <section>
-      <h2>5. Dashboard users</h2>
+      <h2>5. Services & pricing</h2>
+      <p class="section-hint">The more specific you are, the better our AI can answer client questions and quote prices correctly.</p>
+
+      <label>
+        Detailed service description
+        <textarea name="bk_service_description" rows="4" placeholder="What do you offer, in plain language? How long are sessions? What's the format?"></textarea>
+      </label>
+
+      <label>
+        Single session / drop-in rate
+        <input type="text" name="bk_single_session_rate" placeholder="e.g. $65 for 25 min, $125 for 50 min">
+      </label>
+
+      <label>
+        Membership pricing (one tier per line)
+        <textarea name="bk_membership_pricing" rows="4" placeholder="Four 25 min sessions/mo: $209&#10;Four 50 min sessions/mo: $349&#10;Eight 25 min sessions/mo: $359"></textarea>
+        <small>Include commitment length if any.</small>
+      </label>
+
+      <label>
+        Package pricing (optional, for non-members)
+        <textarea name="bk_package_pricing" rows="3" placeholder="Three 25 min: $179. Five 25 min: $299."></textarea>
+      </label>
+
+      <label>
+        Cancellation, freeze, or refund policy
+        <textarea name="bk_cancellation_policy" rows="2" placeholder="e.g. 3-month commitment then month-to-month. 24-hour cancellation window. No refunds on packages."></textarea>
+      </label>
+
+      <label>
+        Age or eligibility restrictions
+        <input type="text" name="bk_eligibility" placeholder="e.g. 18+, or kids 5 and up, or no restrictions">
+      </label>
+    </section>
+
+    <section>
+      <h2>6. About your business & voice</h2>
+      <p class="section-hint">This is how we teach the AI to sound like you when it talks to your clients.</p>
+
+      <label>
+        Who is your ideal client?
+        <textarea name="bk_ideal_client" rows="3" placeholder="Demographics, goals, pain points. e.g. Professionals 35 to 65, health-conscious, active but tight from desk jobs, want mobility and recovery."></textarea>
+      </label>
+
+      <label>
+        What makes you unique?
+        <textarea name="bk_unique_value" rows="3" placeholder="What sets you apart from competitors nearby? Space, team, method, anything."></textarea>
+      </label>
+
+      <label>
+        Current active member count (approximate)
+        <input type="number" name="bk_current_members" min="0" placeholder="e.g. 124">
+        <small>Helps us calibrate.</small>
+      </label>
+
+      <label>
+        Approved taglines or phrases
+        <textarea name="bk_approved_phrases" rows="3" placeholder="Lines we should use in texts. One per line.&#10;e.g. Unlock your athletic edge&#10;Stronger starts with flexible"></textarea>
+      </label>
+
+      <label>
+        Medical or legal claims to NEVER make
+        <textarea name="bk_forbidden_claims" rows="3" placeholder="e.g. Never say stretching cures injuries or medical conditions. Never guarantee results. No weight loss claims."></textarea>
+        <small>Keeps us compliant.</small>
+      </label>
+
+      <label>
+        What to bring & what to expect on first visit
+        <textarea name="bk_first_visit" rows="3" placeholder="e.g. Wear comfortable clothes. Arrive 10 min early. First session includes a full body assessment."></textarea>
+      </label>
+
+      <label>
+        Frequently asked questions
+        <textarea name="bk_faq" rows="4" placeholder="Anything clients ask repeatedly. Just dump them here, raw. We'll parse."></textarea>
+      </label>
+    </section>
+
+    <section>
+      <h2>7. Dashboard users</h2>
       <p class="section-hint">Who on your team needs a login? Admins see everything, managers see only this location.</p>
 
       <div id="users-list">
@@ -171,7 +249,7 @@
     </section>
 
     <section>
-      <h2>6. Anything else?</h2>
+      <h2>8. Anything else?</h2>
 
       <label>
         Notes for the Velocity team

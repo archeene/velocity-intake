@@ -73,6 +73,25 @@
     return hours;
   }
 
+  function collectBusinessKnowledge(fd) {
+    const currentMembers = fd.get('bk_current_members');
+    return {
+      service_description: fd.get('bk_service_description') || null,
+      single_session_rate: fd.get('bk_single_session_rate') || null,
+      membership_pricing: fd.get('bk_membership_pricing') || null,
+      package_pricing: fd.get('bk_package_pricing') || null,
+      cancellation_policy: fd.get('bk_cancellation_policy') || null,
+      eligibility: fd.get('bk_eligibility') || null,
+      ideal_client: fd.get('bk_ideal_client') || null,
+      unique_value: fd.get('bk_unique_value') || null,
+      current_members: currentMembers ? parseInt(currentMembers, 10) : null,
+      approved_phrases: fd.get('bk_approved_phrases') || null,
+      forbidden_claims: fd.get('bk_forbidden_claims') || null,
+      first_visit: fd.get('bk_first_visit') || null,
+      faq: fd.get('bk_faq') || null
+    };
+  }
+
   function collectUsers() {
     const users = [];
     document.querySelectorAll('#users-list .user-row').forEach(row => {
@@ -237,6 +256,7 @@
         preferred_words: fd.get('preferred_words') || null,
         avoid_words: fd.get('avoid_words') || null,
         dashboard_users: collectUsers(),
+        business_knowledge: collectBusinessKnowledge(fd),
         notes: fd.get('notes') || null,
         honeypot: fd.get('honeypot') || null,
         user_agent: navigator.userAgent

@@ -38,6 +38,12 @@ create table if not exists public.location_intake_submissions (
   -- Dashboard users as jsonb: [{name, email, role}, ...]
   dashboard_users jsonb,
 
+  -- Business knowledge for AI context (flattened to jsonb):
+  --  service_description, single_session_rate, membership_pricing, package_pricing,
+  --  cancellation_policy, eligibility, ideal_client, unique_value, current_members,
+  --  approved_phrases, forbidden_claims, first_visit, faq
+  business_knowledge jsonb,
+
   notes text,
 
   -- Meta + review
