@@ -4,7 +4,7 @@ Client-facing intake form for new Velocity AI Partners locations. Static HTML + 
 
 ## Live URL
 
-https://archeene.github.io/velocity-intake/
+https://velocity-ai-partners.github.io/velocity-intake/
 
 ## Stack
 
