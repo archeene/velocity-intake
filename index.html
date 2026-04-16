@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velocity AI Partners — New Location Intake</title>
+<meta name="description" content="Provide the details we need to set up your location on the Velocity AI platform.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="container">
+  <header>
+    <h1>New Location Intake</h1>
+    <p class="lead">Welcome. Fill out the info below so we can set up your AI system. Takes about 10 minutes. Your progress saves as you type.</p>
+  </header>
+
+  <form id="intake-form" novalidate>
+
+    <section>
+      <h2>1. Business info</h2>
+
+      <label>
+        Business name
+        <input type="text" name="business_name" required placeholder="e.g. Stretch Zone Columbus">
+      </label>
+
+      <label>
+        City
+        <input type="text" name="city" placeholder="Columbus">
+      </label>
+
+      <label>
+        Street address
+        <input type="text" name="address" placeholder="123 Main St, Columbus OH 43215">
+      </label>
+
+      <label>
+        Timezone
+        <select name="timezone" required>
+          <option value="">Select...</option>
+          <option value="America/New_York">Eastern (New York)</option>
+          <option value="America/Chicago">Central (Chicago)</option>
+          <option value="America/Denver">Mountain (Denver)</option>
+          <option value="America/Phoenix">Mountain no DST (Phoenix)</option>
+          <option value="America/Los_Angeles">Pacific (Los Angeles)</option>
+          <option value="America/Anchorage">Alaska (Anchorage)</option>
+          <option value="Pacific/Honolulu">Hawaii (Honolulu)</option>
+        </select>
+      </label>
+
+      <label>
+        Primary contact email
+        <input type="email" name="contact_email" required placeholder="owner@business.com">
+        <small>Where we send account details and follow-ups.</small>
+      </label>
+
+      <label>
+        Primary contact phone
+        <input type="tel" name="contact_phone" placeholder="(555) 123-4567">
+      </label>
+
+      <label>
+        Studio logo (optional)
+        <input type="file" name="logo" accept="image/png,image/jpeg" id="logo-input">
+        <small>PNG or JPG, under 2MB. We use this in client-facing pages.</small>
+      </label>
+    </section>
+
+    <section>
+      <h2>2. Business hours</h2>
+      <p class="section-hint">Used so our AI never texts clients outside open hours. Check "closed" for days you're not open.</p>
+
+      <div class="hours-grid" id="hours-grid">
+        <!-- rendered by form.js -->
+      </div>
+    </section>
+
+    <section>
+      <h2>3. CRM access</h2>
+      <div class="trust-banner">
+        Your credentials are stored securely and used only to sync members and bookings between your CRM and the Velocity AI system. No one outside the Velocity team sees them.
+      </div>
+
+      <label>
+        CRM platform
+        <select name="crm_platform" required>
+          <option value="">Select...</option>
+          <option value="clubready">ClubReady</option>
+          <option value="wellnessliving">WellnessLiving</option>
+          <option value="spark">Spark Membership</option>
+          <option value="mindbody">Mindbody</option>
+          <option value="arketa">Arketa</option>
+          <option value="other">Other (tell us below)</option>
+        </select>
+      </label>
+
+      <label>
+        CRM admin username
+        <input type="text" name="crm_username" autocomplete="off" placeholder="Your admin login for the CRM">
+      </label>
+
+      <label>
+        CRM admin password
+        <input type="password" name="crm_password" autocomplete="new-password" placeholder="Your admin password">
+      </label>
+
+      <label>
+        Store / Location ID
+        <input type="text" name="crm_store_id" placeholder="If you don't know, write 'unknown'">
+        <small>Your CRM support can tell you. "unknown" is fine, we can find it.</small>
+      </label>
+    </section>
+
+    <section>
+      <h2>4. Branding & messaging</h2>
+      <p class="section-hint">How your AI system sounds to your clients over text.</p>
+
+      <label>
+        Studio phone (as it should appear in texts)
+        <input type="text" name="studio_phone_display" placeholder="(555) 123-4567">
+        <small>The number clients can call you at. Shown inside SMS content.</small>
+      </label>
+
+      <label>
+        Preferred assistant name
+        <input type="text" name="assistant_name" placeholder="e.g. Ashley">
+        <small>The name the AI uses to introduce itself. Made up is fine.</small>
+      </label>
+
+      <label>
+        Preferred sign-off
+        <input type="text" name="sign_off_name" placeholder="e.g. The team, Ashley, -S">
+      </label>
+
+      <label>
+        Intro offer for new leads
+        <textarea name="intro_offer" rows="2" placeholder="e.g. 2 classes for $29, or First stretch free"></textarea>
+      </label>
+
+      <fieldset class="inline-radios">
+        <legend>Do you offer a free trial?</legend>
+        <label class="radio"><input type="radio" name="has_free_trial" value="yes"> Yes</label>
+        <label class="radio"><input type="radio" name="has_free_trial" value="no" checked> No</label>
+      </fieldset>
+
+      <label id="trial-url-wrap" hidden>
+        Trial booking URL
+        <input type="url" name="trial_booking_url" placeholder="https://">
+      </label>
+
+      <label>
+        Words or phrases to always use
+        <textarea name="preferred_words" rows="2" placeholder="e.g. 'session' instead of 'class', 'member' instead of 'client'"></textarea>
+      </label>
+
+      <label>
+        Words or phrases to never use
+        <textarea name="avoid_words" rows="2" placeholder="e.g. never say 'cheap', never use emojis"></textarea>
+      </label>
+    </section>
+
+    <section>
+      <h2>5. Dashboard users</h2>
+      <p class="section-hint">Who on your team needs a login? Admins see everything, managers see only this location.</p>
+
+      <div id="users-list">
+        <!-- rendered by form.js -->
+      </div>
+
+      <button type="button" id="add-user" class="btn-secondary">+ Add another user</button>
+    </section>
+
+    <section>
+      <h2>6. Anything else?</h2>
+
+      <label>
+        Notes for the Velocity team
+        <textarea name="notes" rows="4" placeholder="Anything else we should know: existing Twilio account, special hours, multiple locations under one brand, anything."></textarea>
+      </label>
+    </section>
+
+    <!-- honeypot: humans don't see this, bots fill it -->
+    <div class="honeypot" aria-hidden="true">
+      <label>Leave this field blank
+        <input type="text" name="honeypot" tabindex="-1" autocomplete="off">
+      </label>
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" id="submit-btn">Submit intake form</button>
+      <p class="submit-note">We'll review and reach out within 1 business day.</p>
+    </div>
+
+    <div id="error-box" class="error-box" hidden></div>
+  </form>
+
+  <div id="success-screen" class="success-screen" hidden>
+    <h2>Thanks, we got it.</h2>
+    <p>A member of the Velocity team will review your info and reach out within 1 business day to finish setup.</p>
+    <p>Questions in the meantime? Email <a href="mailto:sirtobiaswade@gmail.com">sirtobiaswade@gmail.com</a>.</p>
+  </div>
+</main>
+
+<script src="form.js"></script>
+</body>
+</html>
