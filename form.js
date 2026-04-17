@@ -3,7 +3,6 @@
   const SUPABASE_ANON_KEY = 'sb_publishable_vJre2v0OdqOGfrNBHAJE0g_L3FaG1RA';
   const TABLE = 'location_intake_submissions';
   const BUCKET = 'intake-logos';
-  const AUTOSAVE_KEY = 'velocity-intake-draft-v1';
 
   const DAYS = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
   const DAY_LABELS = { mon: 'Monday', tue: 'Tuesday', wed: 'Wednesday', thu: 'Thursday', fri: 'Friday', sat: 'Saturday', sun: 'Sunday' };
@@ -120,47 +119,10 @@
     return users;
   }
 
-  function saveDraftLocal() {
-    const form = document.getElementById('intake-form');
-    const fd = new FormData(form);
-    const obj = {};
-    for (const [k, v] of fd.entries()) {
-      if (v instanceof File) continue;
-      obj[k] = v;
-    }
-    try {
-      localStorage.setItem(AUTOSAVE_KEY, JSON.stringify(obj));
-    } catch (e) { /* storage full or disabled */ }
-  }
-
-  function restoreDraftLocal() {
-    try {
-      const raw = localStorage.getItem(AUTOSAVE_KEY);
-      if (!raw) return;
-      const obj = JSON.parse(raw);
-      applyFlatFormState(obj);
-    } catch (e) { /* invalid json, ignore */ }
-  }
-
-  function applyFlatFormState(obj) {
-    const form = document.getElementById('intake-form');
-    for (const [k, v] of Object.entries(obj)) {
-      const el = form.elements[k];
-      if (!el) continue;
-      if (el.type === 'radio') {
-        const radio = form.querySelector(`[name="${k}"][value="${v}"]`);
-        if (radio) radio.checked = true;
-      } else if (el.type === 'checkbox') {
-        el.checked = v === 'on' || v === true;
-      } else {
-        el.value = v;
-      }
-    }
-    applyConditionals();
-  }
-
-  function clearDraftLocal() {
-    try { localStorage.removeItem(AUTOSAVE_KEY); } catch (e) {}
+  function clearStaleLocalStorage() {
+    // Older versions used localStorage for autosave. Remove any leftover state
+    // so the bare URL is always a fresh blank form.
+    try { localStorage.removeItem('velocity-intake-draft-v1'); } catch (e) {}
   }
 
   function toggleTrialURL() {
@@ -511,7 +473,6 @@
         await insertRow(payload);
       }
 
-      clearDraftLocal();
       document.getElementById('intake-form').hidden = true;
       document.getElementById('draft-banner').hidden = true;
       document.getElementById('success-screen').hidden = false;
@@ -545,18 +506,16 @@
   }
 
   document.addEventListener('DOMContentLoaded', async () => {
+    clearStaleLocalStorage();
     renderHours();
     renderUsers();
 
-    const loadedFromServer = await initDraftFromUrl();
-    if (!loadedFromServer) restoreDraftLocal();
+    await initDraftFromUrl();
 
-    document.getElementById('intake-form').addEventListener('input', saveDraftLocal);
     document.getElementById('intake-form').addEventListener('change', (e) => {
       if (e.target.name === 'has_free_trial') toggleTrialURL();
       if (e.target.name === 'is_multi_location') toggleParentBrand();
       if (e.target.name === 'existing_twilio') toggleExistingTwilio();
-      saveDraftLocal();
     });
     document.getElementById('intake-form').addEventListener('submit', handleSubmit);
     document.getElementById('save-draft-btn').addEventListener('click', handleSaveDraft);
