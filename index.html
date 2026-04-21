@@ -3,110 +3,243 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velocity AI Partners — New Location Intake</title>
-<meta name="description" content="Provide the details we need to set up your location on the Velocity AI platform.">
-<link rel="stylesheet" href="styles.css?v=4">
+<title>Velocity AI Partners — Client Onboarding</title>
+<meta name="description" content="Share the details we need to configure your AI Agent on the Velocity AI platform.">
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
+<div class="progress-bar" role="progressbar" aria-label="Required fields completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar__fill" id="progress-fill"></div></div>
 <main class="container">
   <header>
-    <h1>New Location Intake</h1>
-    <p class="lead">Welcome. Fill out the info below so we can set up your AI system. Takes about 10 minutes. Use Save draft to come back later or hand off to someone else using the link we give you.</p>
+    <span class="eyebrow">Velocity AI Partners</span>
+    <h1>Client Onboarding</h1>
+    <p class="lead">Share the information we need to configure your AI Agent. Save a draft at any point and use the link we provide to resume or hand off to a teammate.</p>
+    <div class="meta-row">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ~10 minutes</span>
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Save &amp; resume</span>
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Encrypted transit</span>
+    </div>
+    <p class="required-note"><span class="req" aria-hidden="true">*</span> indicates a required field · <span id="progress-text">0% complete</span></p>
   </header>
 
   <form id="intake-form" novalidate>
 
     <section>
-      <h2>1. Business info</h2>
+      <h2>Business Information</h2>
 
       <label>
-        Business name
+        Business Name <span class="req" aria-hidden="true">*</span>
         <input type="text" name="business_name" required placeholder="e.g. Stretch Zone Columbus">
       </label>
 
       <label>
-        City
-        <input type="text" name="city" placeholder="Columbus">
+        Business Email <span class="req" aria-hidden="true">*</span>
+        <input type="email" name="business_email" required placeholder="info@yourstudio.com">
       </label>
 
       <label>
-        Street address
-        <input type="text" name="address" placeholder="123 Main St, Columbus OH 43215">
+        Business Phone <span class="req" aria-hidden="true">*</span>
+        <input type="tel" name="business_phone" required placeholder="(555) 123-4567">
       </label>
 
       <label>
-        Timezone
+        City <span class="req" aria-hidden="true">*</span>
+        <input type="text" name="city" required placeholder="Columbus">
+      </label>
+
+      <label>
+        Street Address <span class="req" aria-hidden="true">*</span>
+        <input type="text" name="address" required placeholder="123 Main St, Columbus OH 43215">
+      </label>
+
+      <label>
+        Timezone <span class="req" aria-hidden="true">*</span>
         <select name="timezone" required>
           <option value="">Select...</option>
-          <option value="America/New_York">Eastern (New York)</option>
-          <option value="America/Chicago">Central (Chicago)</option>
-          <option value="America/Denver">Mountain (Denver)</option>
-          <option value="America/Phoenix">Mountain no DST (Phoenix)</option>
-          <option value="America/Los_Angeles">Pacific (Los Angeles)</option>
-          <option value="America/Anchorage">Alaska (Anchorage)</option>
-          <option value="Pacific/Honolulu">Hawaii (Honolulu)</option>
+          <optgroup label="United States">
+            <option value="America/New_York">Eastern (New York)</option>
+            <option value="America/Detroit">Eastern — Michigan (Detroit)</option>
+            <option value="America/Indiana/Indianapolis">Eastern — Indiana (Indianapolis)</option>
+            <option value="America/Kentucky/Louisville">Eastern — Kentucky (Louisville)</option>
+            <option value="America/Chicago">Central (Chicago)</option>
+            <option value="America/Menominee">Central — Michigan UP (Menominee)</option>
+            <option value="America/Denver">Mountain (Denver)</option>
+            <option value="America/Boise">Mountain — Idaho (Boise)</option>
+            <option value="America/Phoenix">Mountain — Arizona, no DST (Phoenix)</option>
+            <option value="America/Los_Angeles">Pacific (Los Angeles)</option>
+            <option value="America/Anchorage">Alaska (Anchorage)</option>
+            <option value="America/Juneau">Alaska — Juneau</option>
+            <option value="America/Adak">Hawaii–Aleutian (Adak)</option>
+            <option value="Pacific/Honolulu">Hawaii (Honolulu)</option>
+          </optgroup>
+          <optgroup label="U.S. Territories">
+            <option value="America/Puerto_Rico">Atlantic — Puerto Rico</option>
+            <option value="America/St_Thomas">Atlantic — U.S. Virgin Islands (St Thomas)</option>
+            <option value="Pacific/Guam">Chamorro — Guam</option>
+            <option value="Pacific/Saipan">Chamorro — Northern Mariana Is. (Saipan)</option>
+            <option value="Pacific/Pago_Pago">Samoa — American Samoa (Pago Pago)</option>
+          </optgroup>
+          <optgroup label="Canada">
+            <option value="America/Toronto">Eastern — Toronto</option>
+            <option value="America/Winnipeg">Central — Winnipeg</option>
+            <option value="America/Regina">Central — Saskatchewan, no DST (Regina)</option>
+            <option value="America/Edmonton">Mountain — Edmonton</option>
+            <option value="America/Vancouver">Pacific — Vancouver</option>
+            <option value="America/Halifax">Atlantic — Halifax</option>
+            <option value="America/St_Johns">Newfoundland — St John's</option>
+          </optgroup>
+          <optgroup label="Mexico, Central &amp; South America">
+            <option value="America/Mexico_City">Mexico City</option>
+            <option value="America/Tijuana">Tijuana</option>
+            <option value="America/Monterrey">Monterrey</option>
+            <option value="America/Guatemala">Guatemala City</option>
+            <option value="America/Costa_Rica">Costa Rica</option>
+            <option value="America/Panama">Panama</option>
+            <option value="America/Bogota">Bogotá</option>
+            <option value="America/Lima">Lima</option>
+            <option value="America/Santiago">Santiago</option>
+            <option value="America/Argentina/Buenos_Aires">Buenos Aires</option>
+            <option value="America/Sao_Paulo">São Paulo</option>
+          </optgroup>
+          <optgroup label="Europe">
+            <option value="Europe/London">London</option>
+            <option value="Europe/Dublin">Dublin</option>
+            <option value="Europe/Lisbon">Lisbon</option>
+            <option value="Europe/Paris">Paris</option>
+            <option value="Europe/Madrid">Madrid</option>
+            <option value="Europe/Amsterdam">Amsterdam</option>
+            <option value="Europe/Brussels">Brussels</option>
+            <option value="Europe/Berlin">Berlin</option>
+            <option value="Europe/Zurich">Zurich</option>
+            <option value="Europe/Rome">Rome</option>
+            <option value="Europe/Vienna">Vienna</option>
+            <option value="Europe/Warsaw">Warsaw</option>
+            <option value="Europe/Stockholm">Stockholm</option>
+            <option value="Europe/Oslo">Oslo</option>
+            <option value="Europe/Copenhagen">Copenhagen</option>
+            <option value="Europe/Helsinki">Helsinki</option>
+            <option value="Europe/Athens">Athens</option>
+            <option value="Europe/Istanbul">Istanbul</option>
+            <option value="Europe/Moscow">Moscow</option>
+          </optgroup>
+          <optgroup label="Middle East &amp; Africa">
+            <option value="Asia/Dubai">Dubai</option>
+            <option value="Asia/Riyadh">Riyadh</option>
+            <option value="Asia/Tel_Aviv">Tel Aviv</option>
+            <option value="Africa/Johannesburg">Johannesburg</option>
+            <option value="Africa/Cairo">Cairo</option>
+            <option value="Africa/Nairobi">Nairobi</option>
+            <option value="Africa/Lagos">Lagos</option>
+          </optgroup>
+          <optgroup label="Asia">
+            <option value="Asia/Karachi">Karachi</option>
+            <option value="Asia/Kolkata">India Standard Time (Kolkata)</option>
+            <option value="Asia/Dhaka">Dhaka</option>
+            <option value="Asia/Bangkok">Bangkok</option>
+            <option value="Asia/Jakarta">Jakarta</option>
+            <option value="Asia/Singapore">Singapore</option>
+            <option value="Asia/Kuala_Lumpur">Kuala Lumpur</option>
+            <option value="Asia/Manila">Manila</option>
+            <option value="Asia/Hong_Kong">Hong Kong</option>
+            <option value="Asia/Shanghai">Shanghai / Beijing</option>
+            <option value="Asia/Taipei">Taipei</option>
+            <option value="Asia/Tokyo">Tokyo</option>
+            <option value="Asia/Seoul">Seoul</option>
+          </optgroup>
+          <optgroup label="Australia &amp; Pacific">
+            <option value="Australia/Perth">Perth</option>
+            <option value="Australia/Adelaide">Adelaide</option>
+            <option value="Australia/Brisbane">Brisbane</option>
+            <option value="Australia/Sydney">Sydney</option>
+            <option value="Australia/Melbourne">Melbourne</option>
+            <option value="Australia/Hobart">Hobart</option>
+            <option value="Pacific/Auckland">Auckland</option>
+            <option value="Pacific/Fiji">Fiji</option>
+          </optgroup>
+          <optgroup label="UTC">
+            <option value="UTC">UTC (Coordinated Universal Time)</option>
+          </optgroup>
         </select>
       </label>
 
       <label>
-        Primary contact email
+        Primary Contact Email <span class="req" aria-hidden="true">*</span>
         <input type="email" name="contact_email" required placeholder="owner@business.com">
-        <small>Where we send account details and follow-ups.</small>
+        <small>Direct email of the person we'll work with on setup. Booking notifications and call requests go here too.</small>
       </label>
 
       <label>
-        Primary contact phone
-        <input type="tel" name="contact_phone" placeholder="(555) 123-4567">
+        Primary Contact Phone <span class="req" aria-hidden="true">*</span>
+        <input type="tel" name="contact_phone" required placeholder="(555) 123-4567">
+        <small>Direct line for the person managing this setup.</small>
       </label>
 
       <label>
-        Business website URL
+        Business Website URL
         <input type="url" name="website_url" placeholder="https://">
       </label>
 
       <label>
-        Google Business Profile URL (optional)
+        Google Business Profile URL
         <input type="url" name="google_business_profile_url" placeholder="https://g.page/...">
         <small>Helps us keep hours and contact info aligned with what your customers already see.</small>
       </label>
 
-      <fieldset class="inline-radios">
-        <legend>Is this one of multiple locations under the same brand?</legend>
-        <label class="radio"><input type="radio" name="is_multi_location" value="no" checked> No, standalone</label>
-        <label class="radio"><input type="radio" name="is_multi_location" value="yes"> Yes, part of a chain or franchise</label>
+      <fieldset class="pill-group">
+        <legend>Is this location part of a chain or franchise?</legend>
+        <label class="pill"><input type="radio" name="is_multi_location" value="no" checked> No, standalone</label>
+        <label class="pill"><input type="radio" name="is_multi_location" value="yes"> Yes, part of a chain or franchise</label>
       </fieldset>
 
       <label id="parent-brand-wrap" hidden>
-        Parent brand or franchise name
-        <input type="text" name="parent_brand_name" placeholder="e.g. Stretch Zone, StretchLab, IMA">
+        Parent Brand <span class="req" aria-hidden="true">*</span>
+        <select name="parent_brand_name">
+          <option value="">Select your parent brand...</option>
+          <option value="Stretch Zone">Stretch Zone</option>
+          <option value="StretchLab">StretchLab</option>
+          <option value="Integrated Martial Arts">Integrated Martial Arts (IMA)</option>
+          <option value="Trybe Fytness">Trybe Fytness</option>
+          <option value="Title Boxing">Title Boxing</option>
+          <option value="other">Other (please specify)</option>
+        </select>
+      </label>
+
+      <label id="parent-brand-other-wrap" hidden>
+        Which brand? <span class="req" aria-hidden="true">*</span>
+        <input type="text" name="parent_brand_other" placeholder="e.g. OrangeTheory, F45">
+      </label>
+
+      <label id="booking-payment-link-wrap" hidden>
+        Booking Payment Link
+        <input type="url" name="booking_payment_link" placeholder="https://...">
+        <small>Link StretchLab clients use to complete booking payment.</small>
+      </label>
+
+      <label id="store-id-wrap" hidden>
+        Store ID
+        <input type="text" name="crm_store_id" placeholder="e.g. 12345">
+        <small>Your CRM's internal identifier for this location. Leave blank if you don't know — we can find it.</small>
       </label>
 
       <label>
-        Studio logo (optional)
+        Studio Logo
         <input type="file" name="logo" accept="image/png,image/jpeg" id="logo-input">
         <small>PNG or JPG, under 2MB. We use this in client-facing pages.</small>
       </label>
     </section>
 
     <section>
-      <h2>2. Business hours</h2>
-      <p class="section-hint">Used so our AI never texts clients outside open hours. Check "closed" for days you're not open.</p>
-
-      <div class="hours-grid" id="hours-grid">
-        <!-- rendered by form.js -->
-      </div>
-    </section>
-
-    <section>
-      <h2>3. CRM access</h2>
+      <h2>CRM Access</h2>
       <div class="trust-banner">
-        Your credentials are stored securely and used only to sync members and bookings between your CRM and the Velocity AI system. No one outside the Velocity team sees them.
+        We need a master admin or admin-level account in your CRM. We use it to set up automations, configure API access, and sync members and bookings with the Velocity AI system. Credentials are stored securely and only the Velocity team sees them.
       </div>
 
       <label>
-        CRM platform
+        CRM Platform <span class="req" aria-hidden="true">*</span>
         <select name="crm_platform" required>
-          <option value="">Select...</option>
+          <option value="">Select your CRM...</option>
           <option value="clubready">ClubReady</option>
           <option value="wellnessliving">WellnessLiving</option>
           <option value="spark">Spark Membership</option>
@@ -116,211 +249,345 @@
         </select>
       </label>
 
-      <label>
-        CRM admin username
-        <input type="text" name="crm_username" autocomplete="off" placeholder="Your admin login for the CRM">
+      <label id="crm-other-wrap" hidden>
+        Which CRM do you use? <span class="req" aria-hidden="true">*</span>
+        <input type="text" name="crm_platform_other" placeholder="e.g. Zen Planner, Glofox, Pike13">
       </label>
 
       <label>
-        CRM admin password
-        <input type="password" name="crm_password" autocomplete="new-password" placeholder="Your admin password">
+        Email Address
+        <input type="email" value="admin@velocityaipartners.ai" readonly tabindex="-1" aria-readonly="true">
+        <small>Create the admin account in your CRM under <strong>admin@velocityaipartners.ai</strong>.</small>
       </label>
 
-      <label>
-        Store / Location ID
-        <input type="text" name="crm_store_id" placeholder="If you don't know, write 'unknown'">
-        <small>Your CRM support can tell you. "unknown" is fine, we can find it.</small>
+      <label class="attestation">
+        <input type="checkbox" name="crm_account_confirmed" required>
+        <span>I confirm that an admin-level account has been created in our CRM using <strong>admin@velocityaipartners.ai</strong>. <span class="req" aria-hidden="true">*</span></span>
       </label>
-
-      <fieldset class="inline-radios">
-        <legend>Do you already have a Twilio account for SMS?</legend>
-        <label class="radio"><input type="radio" name="existing_twilio" value="no" checked> No, please provision one</label>
-        <label class="radio"><input type="radio" name="existing_twilio" value="yes"> Yes, use mine</label>
-      </fieldset>
-
-      <div id="twilio-existing-wrap" hidden>
-        <label>
-          Twilio Account SID
-          <input type="text" name="existing_twilio_account_sid" placeholder="ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
-        </label>
-        <label>
-          Twilio Auth Token
-          <input type="password" name="existing_twilio_auth_token" placeholder="Found in your Twilio console">
-        </label>
-      </div>
     </section>
 
     <section>
-      <h2>4. Branding & messaging</h2>
-      <p class="section-hint">How your AI system sounds to your clients over text.</p>
+      <h2>Business Hours</h2>
+      <p class="section-hint">Used so your AI Agent never sends follow-up texts outside open hours. Enter times in your local timezone (set above). Check "closed" for days you're not open.</p>
+
+      <div class="hours-grid" id="hours-grid">
+        <!-- rendered by form.js -->
+      </div>
+
+      <label class="attestation">
+        <input type="checkbox" name="hours_confirmed" required>
+        <span>I confirm the hours above are accurate. <span class="req" aria-hidden="true">*</span></span>
+      </label>
+    </section>
+
+    <section>
+      <h2>Social Media Presence</h2>
+      <p class="section-hint">Optional — helps us match tone and link out in AI responses where relevant.</p>
 
       <label>
-        Studio phone (as it should appear in texts)
-        <input type="text" name="studio_phone_display" placeholder="(555) 123-4567">
-        <small>The number clients can call you at. Shown inside SMS content.</small>
-      </label>
-
-      <label>
-        Preferred assistant name
-        <input type="text" name="assistant_name" placeholder="e.g. Ashley">
-        <small>The name the AI uses to introduce itself. Made up is fine.</small>
-      </label>
-
-      <label>
-        Preferred sign-off
-        <input type="text" name="sign_off_name" placeholder="e.g. The team, Ashley, -S">
-      </label>
-
-      <label>
-        Intro offer for new leads
-        <textarea name="intro_offer" rows="2" placeholder="e.g. 2 classes for $29, or First stretch free"></textarea>
-      </label>
-
-      <fieldset class="inline-radios">
-        <legend>Do you offer a free trial?</legend>
-        <label class="radio"><input type="radio" name="has_free_trial" value="yes"> Yes</label>
-        <label class="radio"><input type="radio" name="has_free_trial" value="no" checked> No</label>
-      </fieldset>
-
-      <label id="trial-url-wrap" hidden>
-        Trial booking URL
-        <input type="url" name="trial_booking_url" placeholder="https://">
-      </label>
-
-      <label>
-        Words or phrases to always use
-        <textarea name="preferred_words" rows="2" placeholder="e.g. 'session' instead of 'class', 'member' instead of 'client'"></textarea>
-      </label>
-
-      <label>
-        Words or phrases to never use
-        <textarea name="avoid_words" rows="2" placeholder="e.g. never say 'cheap', never use emojis"></textarea>
-      </label>
-
-      <label>
-        Instagram handle (optional)
+        Instagram Handle
         <input type="text" name="instagram_handle" placeholder="@yourbusiness">
       </label>
 
       <label>
-        Facebook Page URL (optional)
+        Facebook Page URL
         <input type="url" name="facebook_page_url" placeholder="https://facebook.com/...">
       </label>
 
       <label>
-        TikTok handle (optional)
+        TikTok Handle
         <input type="text" name="tiktok_handle" placeholder="@yourbusiness">
-      </label>
-
-      <label>
-        Preferred subdomain for SMS links (optional)
-        <input type="text" name="preferred_subdomain" placeholder="e.g. yourbrand (we'll use yourbrand.vap-app.com)">
-        <small>Leave blank and we'll pick something sensible.</small>
       </label>
     </section>
 
     <section>
-      <h2>5. Services & pricing</h2>
-      <p class="section-hint">The more specific you are, the better our AI can answer client questions and quote prices correctly.</p>
+      <h2>Branding &amp; Messaging</h2>
+      <p class="section-hint">How your AI Agent sounds to your clients over text.</p>
+
+      <fieldset class="pill-group">
+        <legend>AI Agent voice <span class="req" aria-hidden="true">*</span></legend>
+        <label class="pill"><input type="radio" name="chatbot_voice" value="team"> Team</label>
+        <label class="pill"><input type="radio" name="chatbot_voice" value="owner"> Owner</label>
+        <label class="pill"><input type="radio" name="chatbot_voice" value="brand"> Brand persona</label>
+        <label class="pill"><input type="radio" name="chatbot_voice" value="unsure"> Unsure — recommend what works</label>
+      </fieldset>
 
       <label>
-        Detailed service description
-        <textarea name="bk_service_description" rows="4" placeholder="What do you offer, in plain language? How long are sessions? What's the format?"></textarea>
+        Voice Specifics
+        <input type="text" name="chatbot_voice_notes" placeholder="e.g. warm and welcoming but direct">
+      </label>
+
+      <fieldset class="pill-group">
+        <legend>AI Agent tone (pick all that apply) <span class="req" aria-hidden="true">*</span></legend>
+        <label class="pill"><input type="checkbox" name="tone_friendly"> Friendly</label>
+        <label class="pill"><input type="checkbox" name="tone_professional"> Professional</label>
+        <label class="pill"><input type="checkbox" name="tone_motivational"> Motivational</label>
+        <label class="pill"><input type="checkbox" name="tone_humorous"> Humorous</label>
+        <label class="pill"><input type="checkbox" name="tone_upbeat"> Upbeat</label>
+      </fieldset>
+
+      <label>
+        Tone Specifics
+        <input type="text" name="chatbot_tone_notes" placeholder="e.g. friendly but not overly casual">
       </label>
 
       <label>
-        Single session / drop-in rate
+        Main Call-to-Action <span class="req" aria-hidden="true">*</span>
+        <select name="main_cta" required>
+          <option value="">Select...</option>
+          <option value="book_demo">Book a free demo</option>
+          <option value="schedule_call">Schedule a call</option>
+          <option value="start_trial">Start free trial</option>
+          <option value="buy_membership">Buy a membership</option>
+          <option value="other">Other (tell us below)</option>
+        </select>
+        <small>The primary action the AI Agent drives new leads toward.</small>
+      </label>
+
+      <label id="main-cta-other-wrap" hidden>
+        Your Main Call-to-Action <span class="req" aria-hidden="true">*</span>
+        <input type="text" name="main_cta_other" placeholder="e.g. Book a free assessment">
+      </label>
+
+      <label>
+        Main CTA Details <span class="req" aria-hidden="true">*</span>
+        <textarea name="intro_offer" rows="3" required placeholder="e.g. Free demo session — book at https://yourstudio.com/book, or 2 classes for $29"></textarea>
+        <small>Offer wording, booking link, or any specifics tied to the main CTA above.</small>
+      </label>
+
+      <label>
+        Words, Phrases, or Taglines to Use
+        <textarea name="preferred_words" rows="3" placeholder="Vocabulary swaps (e.g. 'session' instead of 'class') and taglines or catchphrases (e.g. 'Unlock your athletic edge'). One per line."></textarea>
+      </label>
+
+      <label>
+        Words, Phrases, or Claims to Avoid
+        <textarea name="avoid_words" rows="3" placeholder="Style rules (e.g. no emojis, never say 'cheap') and compliance claims (e.g. never claim stretching cures injuries, no weight-loss guarantees). One per line."></textarea>
+        <small>Include anything medical, legal, or brand-sensitive we should never say.</small>
+      </label>
+    </section>
+
+    <section>
+      <h2>Services &amp; Pricing</h2>
+      <p class="section-hint">The more specific you are, the better your AI Agent can answer client questions and quote prices correctly.</p>
+
+      <label>
+        Detailed Service Description <span class="req" aria-hidden="true">*</span>
+        <textarea name="bk_service_description" rows="4" required placeholder="What do you offer, in plain language? How long are sessions? What's the format?"></textarea>
+      </label>
+
+      <label>
+        Single Session / Drop-in Rate <span class="req" aria-hidden="true">*</span>
         <input type="text" name="bk_single_session_rate" placeholder="e.g. $65 for 25 min, $125 for 50 min">
       </label>
 
       <label>
-        Membership pricing (one tier per line)
+        Membership Pricing (one tier per line) <span class="req" aria-hidden="true">*</span>
         <textarea name="bk_membership_pricing" rows="4" placeholder="Four 25 min sessions/mo: $209&#10;Four 50 min sessions/mo: $349&#10;Eight 25 min sessions/mo: $359"></textarea>
-        <small>Include commitment length if any.</small>
+        <small>Provide at least one of the two fields above. Include commitment length if any.</small>
       </label>
 
       <label>
-        Package pricing (optional, for non-members)
+        Package Pricing (optional, for non-members)
         <textarea name="bk_package_pricing" rows="3" placeholder="Three 25 min: $179. Five 25 min: $299."></textarea>
       </label>
 
       <label>
-        Cancellation, freeze, or refund policy
-        <textarea name="bk_cancellation_policy" rows="2" placeholder="e.g. 3-month commitment then month-to-month. 24-hour cancellation window. No refunds on packages."></textarea>
+        Promotions or Discounts
+        <textarea name="bk_promotions" rows="3" placeholder="e.g. 10% military discount, $50 referral credit, seasonal free demo days. One per line."></textarea>
+        <small>Ongoing promos or discount programs the AI Agent should mention.</small>
       </label>
 
       <label>
-        Age or eligibility restrictions
-        <input type="text" name="bk_eligibility" placeholder="e.g. 18+, or kids 5 and up, or no restrictions">
+        Cancellation, Freeze, or Refund Policy <span class="req" aria-hidden="true">*</span>
+        <textarea name="bk_cancellation_policy" rows="2" required placeholder="e.g. 3-month commitment then month-to-month. 24-hour cancellation window. No refunds on packages."></textarea>
+      </label>
+
+      <label>
+        Age or Eligibility Restrictions <span class="req" aria-hidden="true">*</span>
+        <input type="text" name="bk_eligibility" required placeholder="e.g. 18+, or kids 5 and up, or no restrictions">
+      </label>
+
+      <fieldset class="pill-group">
+        <legend>Do you accept health insurance?</legend>
+        <label class="pill"><input type="radio" name="bk_accepts_insurance" value="yes"> Yes</label>
+        <label class="pill"><input type="radio" name="bk_accepts_insurance" value="no"> No</label>
+      </fieldset>
+
+      <fieldset class="pill-group">
+        <legend>Do you accept HSA / FSA?</legend>
+        <label class="pill"><input type="radio" name="bk_accepts_hsa_fsa" value="yes"> Yes</label>
+        <label class="pill"><input type="radio" name="bk_accepts_hsa_fsa" value="no"> No</label>
+      </fieldset>
+
+      <label>
+        Other Accepted Payment or Insurance Types
+        <input type="text" name="bk_insurance_notes" placeholder="e.g. Medicare Advantage, workers' comp, military benefits">
+        <small>Other payment methods, specific plans, or coverage we should mention.</small>
       </label>
     </section>
 
     <section>
-      <h2>6. About your business & voice</h2>
-      <p class="section-hint">This is how we teach the AI to sound like you when it talks to your clients.</p>
+      <h2>Business &amp; Audience</h2>
+      <p class="section-hint">Who your clients are, what makes you different, and what the AI Agent needs to know to represent you.</p>
 
-      <label>
-        Who is your ideal client?
-        <textarea name="bk_ideal_client" rows="3" placeholder="Demographics, goals, pain points. e.g. Professionals 35 to 65, health-conscious, active but tight from desk jobs, want mobility and recovery."></textarea>
+      <fieldset class="pill-group">
+        <legend>How do leads currently find you? (pick all that apply)</legend>
+        <label class="pill"><input type="checkbox" name="lead_source_website"> Website form</label>
+        <label class="pill"><input type="checkbox" name="lead_source_paid_ads"> Paid ads (Facebook / Instagram / Google)</label>
+        <label class="pill"><input type="checkbox" name="lead_source_phone"> Phone calls</label>
+        <label class="pill"><input type="checkbox" name="lead_source_walkin"> Walk-ins</label>
+        <label class="pill"><input type="checkbox" name="lead_source_referrals"> Referrals</label>
+        <label class="pill"><input type="checkbox" name="lead_source_events"> Local events</label>
+        <label class="pill"><input type="checkbox" name="lead_source_gbp"> Google Business Profile</label>
+        <label class="pill"><input type="checkbox" name="lead_source_social_dms"> Social media DMs</label>
+        <label class="pill"><input type="checkbox" name="lead_source_other"> Other (please specify)</label>
+      </fieldset>
+      <label id="lead-source-other-wrap" hidden>
+        <input type="text" name="lead_source_other_text" aria-label="Other lead source" placeholder="Describe the other lead source">
       </label>
 
       <label>
-        What makes you unique?
-        <textarea name="bk_unique_value" rows="3" placeholder="What sets you apart from competitors nearby? Space, team, method, anything."></textarea>
+        Who is your ideal client? <span class="req" aria-hidden="true">*</span>
+        <textarea name="bk_ideal_client" rows="3" required placeholder="Demographics and who they are. e.g. Professionals 35 to 65, active but tight from desk jobs, athletes, runners, golfers."></textarea>
       </label>
 
       <label>
-        Current active member count (approximate)
-        <input type="number" name="bk_current_members" min="0" placeholder="e.g. 124">
-        <small>Helps us calibrate.</small>
+        Client Pain Points or Motivations <span class="req" aria-hidden="true">*</span>
+        <textarea name="bk_pain_points" rows="3" required placeholder="What brings clients to you? e.g. Stiffness, sciatica, desk-job back pain, mobility, recovery, fitness, confidence."></textarea>
+        <small>Helps the AI Agent open conversations with empathy.</small>
       </label>
 
       <label>
-        Approved taglines or phrases
-        <textarea name="bk_approved_phrases" rows="3" placeholder="Lines we should use in texts. One per line.&#10;e.g. Unlock your athletic edge&#10;Stronger starts with flexible"></textarea>
+        What makes you unique? <span class="req" aria-hidden="true">*</span>
+        <textarea name="bk_unique_value" rows="3" required placeholder="What sets you apart from competitors nearby? Space, team, method, anything."></textarea>
       </label>
 
       <label>
-        Medical or legal claims to NEVER make
-        <textarea name="bk_forbidden_claims" rows="3" placeholder="e.g. Never say stretching cures injuries or medical conditions. Never guarantee results. No weight loss claims."></textarea>
-        <small>Keeps us compliant.</small>
+        What to Bring & What to Expect on First Visit <span class="req" aria-hidden="true">*</span>
+        <textarea name="bk_first_visit" rows="3" required placeholder="e.g. Wear comfortable clothes. Arrive 10 min early. First session includes a full body assessment."></textarea>
       </label>
 
       <label>
-        What to bring & what to expect on first visit
-        <textarea name="bk_first_visit" rows="3" placeholder="e.g. Wear comfortable clothes. Arrive 10 min early. First session includes a full body assessment."></textarea>
+        Testimonials or Reviews
+        <textarea name="bk_testimonials" rows="4" placeholder="Paste 2-5 reviews or testimonials, or drop a link. Raw dump is fine — we'll parse."></textarea>
+        <small>Helps the AI Agent echo how real customers talk about you.</small>
       </label>
 
       <label>
-        Frequently asked questions
-        <textarea name="bk_faq" rows="4" placeholder="Anything clients ask repeatedly. Just dump them here, raw. We'll parse."></textarea>
+        Frequently Asked Questions <span class="req" aria-hidden="true">*</span>
+        <textarea name="bk_faq" rows="4" required placeholder="Anything clients ask repeatedly. Just dump them here, raw. We'll parse."></textarea>
       </label>
     </section>
 
     <section>
-      <h2>7. Dashboard users</h2>
-      <p class="section-hint">Who on your team needs a login? Admins see everything, managers see only this location.</p>
+      <h2>Automation &amp; Follow-up</h2>
+      <p class="section-hint">What the AI Agent does automatically, which past leads to re-engage, and how fast it replies and follows up.</p>
+
+      <fieldset class="pill-group">
+        <legend>What should the AI Agent do? (pick all that apply)</legend>
+        <p class="section-hint" style="margin: -4px 0 12px;">These control automated AI Agent actions. Content you provided elsewhere (FAQs, main CTA, booking link) informs the AI Agent's answers regardless of what's checked here.</p>
+        <label class="pill"><input type="checkbox" name="goal_book_demos"> Book demos / trials</label>
+        <label class="pill"><input type="checkbox" name="goal_answer_faqs"> Answer FAQs</label>
+        <label class="pill"><input type="checkbox" name="goal_followup_leads"> Follow up with new leads</label>
+        <label class="pill"><input type="checkbox" name="goal_reactivate_old"> Reactivate past leads &amp; old members</label>
+        <label class="pill"><input type="checkbox" name="goal_upsell"> Upsell memberships or packages</label>
+        <label class="pill"><input type="checkbox" name="goal_provide_directions"> Provide address &amp; directions</label>
+        <label class="pill"><input type="checkbox" name="goal_other"> Other (please specify)</label>
+      </fieldset>
+      <label id="goal-other-wrap" hidden>
+        <input type="text" name="goal_other_text" aria-label="Other automation goal" placeholder="Describe the other automation goal">
+      </label>
+
+      <fieldset class="pill-group">
+        <legend>Which past-lead segments should the AI Agent target for reactivation? (pick all that apply)</legend>
+        <label class="pill"><input type="checkbox" name="react_no_shows"> Demo / trial no-shows</label>
+        <label class="pill"><input type="checkbox" name="react_cooled_leads"> Cooled leads (no response after 2+ weeks)</label>
+        <label class="pill"><input type="checkbox" name="react_expired_members"> Expired memberships</label>
+        <label class="pill"><input type="checkbox" name="react_paused"> Paused / frozen accounts</label>
+        <label class="pill"><input type="checkbox" name="react_lost_sheep"> Long-term inactive ("lost sheep")</label>
+        <label class="pill"><input type="checkbox" name="react_other"> Other (please specify)</label>
+      </fieldset>
+      <label id="react-other-wrap" hidden>
+        <input type="text" name="react_other_text" aria-label="Other reactivation segment" placeholder="Describe the other segment">
+      </label>
+
+      <label>
+        Reactivation Offer or Incentive
+        <textarea name="reactivation_offer" rows="3" placeholder="e.g. Free demo to try again, first month 50% off, or referral bonus"></textarea>
+      </label>
+
+      <fieldset class="pill-group">
+        <legend>Initial reply delay</legend>
+        <label class="pill"><input type="radio" name="sms_initial_delay" value="immediate"> Immediately</label>
+        <label class="pill"><input type="radio" name="sms_initial_delay" value="15_30s"> 15–30 seconds</label>
+        <label class="pill"><input type="radio" name="sms_initial_delay" value="1_2min"> 1–2 minutes</label>
+        <label class="pill"><input type="radio" name="sms_initial_delay" value="5_plus_min"> 5+ minutes</label>
+        <label class="pill"><input type="radio" name="sms_initial_delay" value="unsure"> Unsure — advise</label>
+      </fieldset>
+
+      <label>
+        Follow-up Cadence
+        <input type="text" name="sms_followup_cadence" placeholder="e.g. Day 1, 3, 5 or Day 1 and 7">
+        <small>When should the AI Agent follow up with leads who don't respond? Leave blank if unsure — we'll advise.</small>
+      </label>
+    </section>
+
+    <section>
+      <h2>Handoff &amp; Notifications</h2>
+      <p class="section-hint">When the AI Agent should transfer to a human and how your team gets notified of bookings.</p>
+
+      <fieldset class="pill-group">
+        <legend>When should the AI Agent transfer to a human? <span class="req" aria-hidden="true">*</span></legend>
+        <label class="pill"><input type="radio" name="handoff_rule" value="never"> Never — AI handles everything</label>
+        <label class="pill"><input type="radio" name="handoff_rule" value="on_request"> Only when client asks</label>
+        <label class="pill"><input type="radio" name="handoff_rule" value="business_hours_request"> During studio hours when client asks for a call</label>
+        <label class="pill"><input type="radio" name="handoff_rule" value="complex"> When conversation gets complex or off-topic</label>
+        <label class="pill"><input type="radio" name="handoff_rule" value="other"> Other (please specify)</label>
+      </fieldset>
+      <label id="handoff-rule-other-wrap" hidden>
+        <input type="text" name="handoff_rule_other" aria-label="Other handoff rule" placeholder="Describe when the AI Agent should transfer to a human">
+      </label>
+
+      <fieldset class="pill-group">
+        <legend>Where should booking confirmations go? (pick all that apply)</legend>
+        <label class="pill"><input type="checkbox" name="notify_email"> Email the location</label>
+        <label class="pill"><input type="checkbox" name="notify_sms"> SMS a staff number</label>
+      </fieldset>
+      <p class="section-hint" style="margin-top: 6px;">Notifications route to the Primary Contact Email and Phone from the Business Information section.</p>
+    </section>
+
+    <section>
+      <h2>Anything Else?</h2>
+      <p class="section-hint">Anything else the Velocity team should know before we build — launch targets, KPIs, or misc notes.</p>
+
+      <label>
+        Target KPIs or Goals
+        <textarea name="kpi_targets" rows="3" placeholder="e.g. 15 leads per week, 40% booking rate, 25 new members per month"></textarea>
+        <small>Leave blank if unsure — we'll advise on realistic targets.</small>
+      </label>
+
+      <label>
+        Preferred Target Launch Date
+        <input type="date" name="target_launch_date">
+        <small>When would you like your AI Agent live? We'll aim for this.</small>
+      </label>
+
+      <label>
+        Notes for the Velocity Team
+        <textarea name="notes" rows="4" placeholder="Anything else we should know: special hours, existing automation tools, anything."></textarea>
+      </label>
+    </section>
+
+    <section>
+      <h2>Dashboard Users</h2>
+      <p class="section-hint">Who on your team needs a login? All users get Manager access, scoped to this location. At least one user (name + email) is required.</p>
 
       <div id="users-list">
         <!-- rendered by form.js -->
       </div>
 
       <button type="button" id="add-user" class="btn-secondary">+ Add another user</button>
-    </section>
-
-    <section>
-      <h2>8. Anything else?</h2>
-
-      <label>
-        Preferred target launch date (optional)
-        <input type="date" name="target_launch_date">
-        <small>When would you like your AI system live? We'll aim for this.</small>
-      </label>
-
-      <label>
-        Notes for the Velocity team
-        <textarea name="notes" rows="4" placeholder="Anything else we should know: special hours, existing automation tools, anything."></textarea>
-      </label>
     </section>
 
     <!-- honeypot: humans don't see this, bots fill it -->
@@ -331,9 +598,9 @@
     </div>
 
     <div class="submit-row">
-      <button type="submit" id="submit-btn">Submit intake form</button>
-      <button type="button" id="save-draft-btn" class="btn-secondary">Save draft</button>
-      <p class="submit-note">We'll review and reach out within 1 business day. Save draft if you need to come back later or hand this off.</p>
+      <button type="submit" id="submit-btn">Review &amp; Submit</button>
+      <button type="button" id="save-draft-btn" class="btn-secondary">Save as draft</button>
+      <p class="submit-note">We'll review and reach out within 1 business day. Save as draft if you need to come back later or hand this off.</p>
     </div>
 
     <div id="draft-banner" class="draft-banner" hidden>
@@ -348,13 +615,32 @@
     <div id="error-box" class="error-box" hidden></div>
   </form>
 
+  <div id="submit-confirm-modal" class="modal" hidden>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button type="button" class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      <h2 id="modal-title">Review before submitting</h2>
+      <p class="modal-intro">Quick check. If anything's off, click Edit to go back.</p>
+      <div id="submit-summary"></div>
+      <div class="modal-actions">
+        <button type="button" id="modal-cancel" class="btn-secondary">Edit</button>
+        <button type="button" id="modal-confirm">Confirm &amp; submit</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="already-submitted" class="success-screen" hidden>
+    <h2>Already submitted</h2>
+    <p>This form has already been submitted to the Velocity team. You can't edit it from this link.</p>
+    <p>Need to make changes? Email <a href="mailto:admin@velocityaipartners.ai">admin@velocityaipartners.ai</a>.</p>
+  </div>
+
   <div id="success-screen" class="success-screen" hidden>
     <h2>Thanks, we got it.</h2>
     <p>A member of the Velocity team will review your info and reach out within 1 business day to finish setup.</p>
-    <p>Questions in the meantime? Email <a href="mailto:sirtobiaswade@gmail.com">sirtobiaswade@gmail.com</a>.</p>
+    <p>Questions in the meantime? Email <a href="mailto:admin@velocityaipartners.ai">admin@velocityaipartners.ai</a>.</p>
   </div>
 </main>
 
-<script src="form.js?v=4"></script>
+<script src="form.js?v=18"></script>
 </body>
 </html>
